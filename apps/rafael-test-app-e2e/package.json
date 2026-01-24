@@ -1,0 +1,10 @@
+{
+  "name": "@rafael-apps/rafael-test-app-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@rafael-apps/rafael-test-app"
+    ]
+  }
+}

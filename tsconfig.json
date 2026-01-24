@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/rafael-test-app-e2e"
+    },
+    {
+      "path": "./apps/rafael-test-app"
+    },
+    {
+      "path": "./apps/react-web-e2e"
+    },
+    {
+      "path": "./apps/react-web"
+    }
+  ]
+}

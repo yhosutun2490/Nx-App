@@ -1,0 +1,10 @@
+{
+  "name": "@rafael-apps/react-web-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@rafael-apps/react-web"
+    ]
+  }
+}
