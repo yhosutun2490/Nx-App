@@ -1,4 +1,4 @@
-package com.anonymous.rafaelappsrafaeltestapp
+package com.rafaelapps.rafaeltestapp
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

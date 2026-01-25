@@ -1,11 +1,11 @@
 {
   "expo": {
     "name": "RafaelTestApp",
-    "slug": "@rafael-apps/rafael-test-app",
+    "slug": "rafael-test-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "@rafael-apps/rafael-test-app",
+    "scheme": "rafael-test-app",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -17,7 +17,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.rafaelappsrafaeltestapp"
+      "package": "com.rafaelapps.rafaeltestapp"
     },
     "web": {
       "bundler": "metro",

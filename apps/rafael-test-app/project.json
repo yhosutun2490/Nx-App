@@ -1,8 +1,21 @@
-
 {
   "targets": {
-  "start": {
-      "executor": "@nx/expo:start"
-  }
+    "start": {
+      "executor": "@nx/expo:start",
+      "options": {
+        "port": 8081,
+        "devClient": true,
+        "scheme": "rafael-test-app"
+      }
+    },
+    "run-android": {
+      "executor": "@nx/expo:run",
+      "options": {
+        "platform": "android",
+        "port": 8081,
+        "device": "Medium_Phone_API_36.1",
+        "variant": "debug"
+      }
+    }
   }
 }
