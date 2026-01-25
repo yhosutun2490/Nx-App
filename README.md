@@ -2,81 +2,104 @@
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+你的全新 [Nx workspace](https://nx.dev) 幾乎完成了。
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/expo?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+你可以先了解 [此 workspace 的設定與能力](https://nx.dev/nx-api/expo?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)，或執行 `npx nx graph` 以視覺化查看專案結構。接下來就開始上手吧。
 
-## Finish your remote caching setup
+## 完成遠端快取設定
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/jTmGwhhB38)
+[點這裡完成 workspace 設定](https://cloud.nx.app/connect/jTmGwhhB38)
 
+## 執行任務
 
-## Run tasks
-
-To run the dev server for your app, use:
+啟動開發伺服器：
 
 ```sh
 npx nx serve rafael-test-app
 ```
 
-To create a production bundle:
+## 疑難排解 2026/01/25
+
+如果 Android 無法開啟 dev client，並出現：
+
+```
+Error: Couldn't open Android app with activity "<scheme>://expo-development-client/?url=..."
+```
+
+請確認 scheme 一致且 Android 原生檔案是最新的：
+
+1) 確認 `apps/rafael-test-app/app.json` 內的 scheme（expo.scheme）
+2) 確認 `apps/rafael-test-app/android/app/src/main/AndroidManifest.xml` 內的 scheme 相同
+   找 `<data android:scheme="..."/>`
+3) 如果修改過 scheme 但尚未重新 prebuild，請重新生成原生檔並安裝：
+
+```sh
+npx nx run rafael-test-app:run-android --clean
+```
+
+接著啟動 dev client，並按 `a`：
+
+```sh
+npx nx run rafael-test-app:start
+```
+
+建立 production bundle：
 
 ```sh
 npx nx build rafael-test-app
 ```
 
-To see all available targets to run for a project, run:
+查看專案可用的 targets：
 
 ```sh
 npx nx show project rafael-test-app
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+這些 targets 可能是 [自動推斷](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) 或定義在 `project.json` / `package.json` 中。
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+[更多關於執行任務的說明 »](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## Add new projects
+## 新增專案
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+你可以手動新增專案，但更推薦使用 [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) 及其 [程式碼產生](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) 功能。
 
-Use the plugin's generator to create new projects.
+透過 plugin 的 generator 來建立新專案。
 
-To generate a new application, use:
+新增一個 app：
 
 ```sh
 npx nx g @nx/expo:app demo
 ```
 
-To generate a new library, use:
+新增一個 library：
 
 ```sh
 npx nx g @nx/react:lib mylib
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+你可以先用 `npx nx list` 列出已安裝的 plugins，再用 `npx nx list <plugin-name>` 了解特定 plugin 的功能。也可以 [安裝 Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) 在 IDE 中瀏覽 plugins 與 generators。
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+[了解 Nx plugins »](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [瀏覽 plugin registry »](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
+[了解 Nx 在 CI 的使用 »](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 安裝 Nx Console
 
-## Install Nx Console
+Nx Console 是一個 IDE 擴充套件，可以幫你執行任務、產生程式碼並提升自動補全體驗。支援 VSCode 與 IntelliJ。
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+[安裝 Nx Console »](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 相關連結
 
-## Useful links
+了解更多：
 
-Learn more:
+- [此 workspace 設定說明](https://nx.dev/nx-api/expo?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
+- [Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [使用 Nx release 發佈套件](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [什麼是 Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-- [Learn more about this workspace setup](https://nx.dev/nx-api/expo?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
+加入 Nx 社群：
 - [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [X](https://twitter.com/nxdevtools) 或 [LinkedIn](https://www.linkedin.com/company/nrwl)
+- [YouTube](https://www.youtube.com/@nxdevtools)
+- [部落格](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
