@@ -3,7 +3,7 @@
     "start": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "node tools/start-expo.js start --port 8081 --dev-client --scheme rafael-test-app",
+        "command": "node tools/start-expo.js start --port 8081",
         "cwd": "apps/rafael-test-app"
       }
     },
