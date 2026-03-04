@@ -1,11 +1,10 @@
 {
   "targets": {
     "start": {
-      "executor": "@nx/expo:start",
+      "executor": "nx:run-commands",
       "options": {
-        "port": 8081,
-        "devClient": true,
-        "scheme": "rafael-test-app"
+        "command": "node tools/start-expo.js start --port 8081 --dev-client --scheme rafael-test-app",
+        "cwd": "apps/rafael-test-app"
       }
     },
     "run-android": {
